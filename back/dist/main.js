@@ -52,7 +52,7 @@ async function bootstrap() {
         .setTitle('BP Ventures API')
         .setDescription('Endpoints de BP Ventures')
         .setVersion('1.0')
-        .addServer('https://api.1rodemayo.com')
+        .addServer('https://api.bpventures.com.ar')
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup('api', app, document);

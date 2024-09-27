@@ -33,6 +33,7 @@ async function bootstrap() {
     allowedHeaders: 'Content-Type, Accept, Authorization, Content-Disposition',
     exposedHeaders: 'Content-Disposition'
   });
+
   const companySeeder = app.get(CompanySeeder);
   await companySeeder.seed();
 
@@ -67,7 +68,7 @@ async function bootstrap() {
   .setTitle('BP Ventures API')
   .setDescription('Endpoints de BP Ventures')
   .setVersion('1.0')
-  .addServer('https://api.1rodemayo.com')  // Reemplaza con tu dominio
+  .addServer('https://api.bpventures.com.ar')  // Reemplaza con tu dominio
   .build();
   
   const document = SwaggerModule.createDocument(app, config);

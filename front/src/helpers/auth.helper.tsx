@@ -146,7 +146,7 @@ export const getAllInvoices = async () => {
       return response.json();
     } else {
       const errorData = await response.json();
-      alert(errorData.message || "Error in Invoices");
+      // alert(errorData.message || "Error in Invoices");
       throw new Error(errorData.message || "Error in Invoices");
     }
   } catch (error: any) {
@@ -168,7 +168,7 @@ export const getUserById = async (userId: number) => {
       return response.json();
     } else {
       const errorData = await response.json();
-      alert(errorData.message || "Error in Invoices");
+      // alert(errorData.message || "Error in Invoices");
       throw new Error(errorData.message || "Error in Invoices");
     }
   } catch (error: any) {
