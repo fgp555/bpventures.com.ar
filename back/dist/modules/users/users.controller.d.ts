@@ -1,0 +1,67 @@
+import { UsersService } from './users.service';
+import { UserEntity } from '../../entities/user.entity';
+import { PaginatedUsers } from '../../interfaces/paginatedUser';
+import { UpdateUserDto } from './dtos/users.update.dto';
+export declare class UserController {
+    private readonly userService;
+    constructor(userService: UsersService);
+    getAllUsers(): Promise<{
+        id: number;
+        email: string;
+        Names: string;
+        LastName: string;
+        Position: string;
+        empresa: string;
+        cuit: number;
+        domicilio: string;
+        verifiedEmail: boolean;
+        mfaEnabled: boolean;
+        mfaBackupCodes: string;
+        mfaSecret: string;
+        mfaVerified: Date;
+        createdAt: Date;
+        modifiedAt: Date;
+        statusId: number;
+        permissions: import("../../entities/permission.entity").Permission[];
+        invoices: import("../../entities/invoice.entity").Invoice[];
+        impactedNotifications: import("../../entities/notification.entity").Notification[];
+        triggeredNotifications: import("../../entities/notification.entity").Notification[];
+        isAdmin: boolean;
+        company: import("../../entities/company.entity").Company;
+        imgProfile: string;
+    }[]>;
+    getUsers(page?: number, limit?: number): Promise<PaginatedUsers | Omit<UserEntity, 'password'>[]>;
+    updateUser(id: number, updateUserDto: UpdateUserDto): Promise<{
+        email: string;
+        Names: string;
+        LastName: string;
+        Position: string;
+        verifiedEmail: boolean;
+        mfaEnabled: boolean;
+        mfaBackupCodes: string;
+        mfaSecret: string;
+        mfaVerified: Date;
+        active?: boolean;
+        isAdmin: boolean;
+        companyId?: any;
+        id: number;
+        empresa: string;
+        cuit: number;
+        domicilio: string;
+        createdAt: Date;
+        modifiedAt: Date;
+        statusId: number;
+        permissions: import("../../entities/permission.entity").Permission[];
+        invoices: import("../../entities/invoice.entity").Invoice[];
+        impactedNotifications: import("../../entities/notification.entity").Notification[];
+        triggeredNotifications: import("../../entities/notification.entity").Notification[];
+        company: import("../../entities/company.entity").Company;
+        imgProfile: string;
+    }>;
+    getUserById(id: number): Promise<Omit<UserEntity, "password">>;
+    updateUserStatus(userId: number, statusId: number): Promise<{
+        message: string;
+    }>;
+    deleteUser(id: number): Promise<import("typeorm").DeleteResult>;
+    verifyEmail(email: string): Promise<UserEntity>;
+}
